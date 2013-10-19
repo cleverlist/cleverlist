@@ -16,17 +16,22 @@
   </div>
 
   <div class=productlist>
-    <div class=item ng-repeat="p in list.products"
-	 hm-tap="show_ads_for(p.name)"
-	 hm-swipeleft="toggle_mark(p.name)"
-	 hm-swiperight="toggle_mark(p.name)"
-      <div class=content>
+    <div class=item
+         ng-class="{checked: p.checked}"
+         ng-repeat="p in list.products"
+	 hm-tap="toggle_ads_for(p.name)"
+	 hm-swipeleft="toggle_check(p)"
+	 hm-swiperight="toggle_check(p)">
+      <div class=content >
 	<span ng-click="remove_product(p.name)" style="float: right">x</span>
 	<img class=star src="images/star.jpg" ng-show="p.has_ads"/>
 	{{p.name}}
       </div>
-      <div class=ads>
-        <div class=ad ng-repeat="p in ads">
+      <div class=ads ng-show="focus_ads == p.name && ads_for[p.name].length > 0">
+        <div class=ad ng-repeat="p in ads_for[p.name]">
+          {{p.name}}
+	  {{p.text}}
+        </div>
       </div>
     </div>
   </div>

@@ -13,7 +13,8 @@ angular.module('cleverlistApp')
         { name: "Neslé", text: "-20% de reduc immédiate"},
       ]
     service =
-        get: (cat) -> return $http.get('/api/discounts/' + cat)
+        #get: (cat) -> return $http.get('/api/discounts/' + cat)
+        get: (cat) -> return $q.when(db[cat]);
         category_has_ad: (cat) -> return $q.when(db[cat].length > 0);
 
     return service;

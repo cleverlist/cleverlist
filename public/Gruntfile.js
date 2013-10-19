@@ -98,7 +98,6 @@ module.exports = function (grunt) {
 	      modRewrite([
 	      	'/list_edit$ /'
               ]),
-              lrSnippet,
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
             ];

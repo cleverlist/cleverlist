@@ -14,6 +14,8 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     for p, i in $scope.list.products || []
       get_has_ads(p);
 
+  $scope.toggle_check = (cat) -> cat.checked = !cat.checked;
+
   $scope.add_product = () ->
     if $scope.to_add then $scope.list.add($scope.to_add);
     $scope.to_add=null;
@@ -21,7 +23,6 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
   $scope.remove_product = (i) -> if i then $scope.list.remove(i);
 
   $scope.ads_category = null;
-
 
   panel = angular.element(document.getElementById('ads_panel'));
 
@@ -35,8 +36,10 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     panel.removeClass('on');
     console.log('swiperight');
 
-  $scope.show_ads_for = (cat) ->
-    $scope.swipeleft_ads_panel();
-    $scope.ads_category = cat;
-    ads.get(cat).then (ret) -> $scope.ads = ret;
+  $scope.focus_ads = null;
+  $scope.ads_for = {};
+  $scope.toggle_ads_for = (cat) ->
+    if $scope.focus_ads == cat then return $scope.focus_ads = null;
+    $scope.focus_ads = cat;
+    ads.get(cat).then (ret) -> $scope.ads_for[cat] = ret; console.log(ret);
   ]
