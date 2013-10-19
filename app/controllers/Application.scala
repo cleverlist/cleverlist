@@ -67,6 +67,17 @@ object ProductLists extends Controller {
       Ok(json).as("application/json")
   }      */
 
+  def getList(userId: Long) = Action {
+
+    val q = MongoDBObject("user_id" -> userId)
+
+    val json = "%s".format(
+      coll.find(q).toList.mkString(",")
+    )
+
+    Ok(json).as("application/json")
+  }
+
   // saves a new product list
   def save() = Action {
     implicit request =>
@@ -84,12 +95,14 @@ object Discounts extends Controller {
   val coll = MongoClient("localhost", 27017)("db")("discounts")
 
   // finds discount from category
-  def findAll(id: Long) = Action {
+  def findAll(id: String) = Action {
     implicit request =>
 
-      val q = MongoDBObject("categoryId" -> id)
+      val q = MongoDBObject("category" -> id)
 
-      val json = "%s".format(
+      println("TEST")
+
+      val json = "[%s]".format(
         coll.find(q).toList.mkString(",")
       )
 

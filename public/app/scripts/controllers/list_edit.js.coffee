@@ -3,10 +3,11 @@
 
 angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'shoppinglist', 'ads', ($scope, $q, shoppinglist, ads) ->
 
-  get_has_ads = (p) -> ads.category_has_ad(p.name).then (b) -> p.has_ads = b; console.log(p);
+  # TODO: revoir l'appel !!!
+  get_has_ads = (p) -> ads.category_has_ad(p).then (b) -> p.has_ads = b;
 
-  $q.when(shoppinglist.find(localStorage.getItem("list_id"))).then (l) ->
-    if l then $scope.list = l
+  $q.when(shoppinglist.find(100)).then (l) ->
+    if l then $scope.list = l.data
     else
       #Create a new list.
       shoppinglist.create().then (l) -> $scope.list = l; localStorage.setItem("list_id", l._id);
@@ -38,5 +39,5 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
   $scope.show_ads_for = (cat) ->
     $scope.swipeleft_ads_panel();
     $scope.ads_category = cat;
-    ads.get(cat).then (ret) -> $scope.ads = ret;
+    ads.get(cat).then (ret) -> $scope.ads = ret.data; console.log(ret.data);
   ]
