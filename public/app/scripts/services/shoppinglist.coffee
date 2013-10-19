@@ -5,6 +5,7 @@ angular.module('cleverlistApp')
     class List
       constructor: (e) ->
         angular.extend(this, e)
+
         if not @products then @products = []
       position_of: (i) ->
         for p, idx in @products
@@ -18,14 +19,17 @@ angular.module('cleverlistApp')
         p = @position_of(i);
         if p != -1 then @products.splice(p, 1);
 
-      save: ->
+      save: -> $http.post('/api/productlists/save', @toJson())
+
+      toJson: -> JSON.stringify(this)
 
     service =
+      add: (cat) -> return $http.get('/api/productlists/' + 100 + '/insert/' + cat);
       create: -> return $q.when(_id: 42);
       find: (id) ->
         if id
           # Api call
-          $http.get('/api/productlists/' + id)
+          $http.get('/api/productlists/' + id).then (r) -> new List(r.data);
         else null
 
     return service;

@@ -7,7 +7,7 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
   get_has_ads = (p) -> ads.category_has_ad(p).then (b) -> p.has_ads = b;
 
   $q.when(shoppinglist.find(100)).then (l) ->
-    if l then $scope.list = l.data
+    if l then $scope.list = l.data;
     else
       #Create a new list.
       shoppinglist.create().then (l) -> $scope.list = l; localStorage.setItem("list_id", l._id);
@@ -15,14 +15,17 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     for p, i in $scope.list.products || []
       get_has_ads(p);
 
+  $scope.toggle_check = (cat) -> cat.checked = !cat.checked;
+
+    #TODO: remplacer par userId
   $scope.add_product = () ->
-    if $scope.to_add then $scope.list.add($scope.to_add);
+    if $scope.to_add then $q.when(shoppinglist.add($scope.to_add)).then (l) -> $scope.list = l.data;
     $scope.to_add=null;
 
-  $scope.remove_product = (i) -> if i then $scope.list.remove(i);
+  $scope.remove_product = (i) -> if i then
+    console.log(angular.fromJson($scope.list.products));$scope.list.remove(i);
 
   $scope.ads_category = null;
-
 
   panel = angular.element(document.getElementById('ads_panel'));
 
@@ -36,8 +39,10 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     panel.removeClass('on');
     console.log('swiperight');
 
-  $scope.show_ads_for = (cat) ->
-    $scope.swipeleft_ads_panel();
-    $scope.ads_category = cat;
-    ads.get(cat).then (ret) -> $scope.ads = ret.data; console.log(ret.data);
+  $scope.focus_ads = null;
+  $scope.ads_for = {};
+  $scope.toggle_ads_for = (cat) ->
+    console.log($scope.focus_ads); if $scope.focus_ads == cat then return $scope.focus_ads = null;
+    $scope.focus_ads = cat;
+    ads.get(cat).then (ret) -> $scope.ads_for[cat] = ret.data;
   ]

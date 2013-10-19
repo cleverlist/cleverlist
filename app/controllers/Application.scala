@@ -67,6 +67,19 @@ object ProductLists extends Controller {
       Ok(json).as("application/json")
   }      */
 
+  def addProduct(id: Long, name: String) = Action {
+
+    val a =  Discounts.coll.findOne(MongoDBObject("category" -> name))
+
+    val q = MongoDBObject("user_id" -> id)
+
+    val u = $push("products" -> MongoDBObject("name" -> name, "quantity" -> 1, "category_name" -> name, "has_discounts" -> a.isDefined))
+
+    coll.update(q, u)
+
+    Ok(coll.findOne(MongoDBObject("user_id" -> id)).get.toString()).as("application/json")
+  }
+
   def getList(userId: Long) = Action {
 
     val q = MongoDBObject("user_id" -> userId)
