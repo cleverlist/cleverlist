@@ -1,0 +1,10 @@
+
+<div class=welcomeview hm-swipe="begin()">
+<img class=logo src='images/splash_logo.jpg'/>
+
+
+<div class=slidetobegin>
+Slide to begin
+</div>
+
+</div>

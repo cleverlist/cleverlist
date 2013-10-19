@@ -1,0 +1,102 @@
+
+#ads_panel
+{
+  position: fixed;
+  top: 90px;
+  background-color: white;
+  font-weight: 600;
+  font-size: 22px;
+  width: 100%;
+  height: 100%;
+}
+
+#ads_panel .content
+{
+  padding: 20px;
+}
+
+#ads_panel .ad
+{
+    border-bottom: 2px solid #e1e1e3;
+    margin-bottom: 20px;
+}
+
+#ads_panel.on
+{
+  transition: all 0.5s ease 0s;
+  right: 0px;
+}
+
+#ads_panel.off
+{
+  transition: all 0.5s ease 0s;
+  right: -100%;
+}
+
+#listview
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.item
+{
+    border-bottom: 2px solid #e1e1e3;
+    width: 100%;
+    background: white;
+    color: #565656;
+    font-weight: 700;
+    text-align: left;
+}
+
+.item .star
+{
+    vertical-align: middle;
+    margin-right: 20px;
+}
+.item .content
+{
+    padding: 20px;
+}
+
+.input_wrapper
+{
+    background: #454344;
+}
+
+.input_wrapper .submit
+{
+    float: right;
+}
+
+.input_wrapper input[type=text]
+{
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    width: 60%;
+    background: #454344;
+    color: #757170;
+    height: 30px;
+    outline: none;
+}
+.input_wrapper input[type=submit]
+{
+    background: #454344;
+    color: #757170;
+    border: none;
+    border-left: solid 1px #373737;
+    padding: 10px;
+    font-size: 20px;
+}
+
+input#add_product
+{
+    width: 70%;
+}
+
+.productlist
+{
+    border-top: 2px solid #e1e1e3;
+}

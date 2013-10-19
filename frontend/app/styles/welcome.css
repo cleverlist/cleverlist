@@ -1,0 +1,24 @@
+
+.welcomeview
+{
+  text-align: center;
+}
+
+.welcomeview .logo
+{
+    margin-top: 100px;
+}
+
+.slidetobegin
+{
+    border-radius: 2px;
+    padding: 10px;
+    font-weight: 600;
+    margin: 100px auto 0 auto;
+    display: block;
+    background: #272727;
+    color: #777171;
+    width: 200px;
+}
+
+

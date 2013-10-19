@@ -1,0 +1,42 @@
+<div id=navbar>
+  <img src="images/top_logo.jpg"/>
+</div>
+
+<div id="listview"
+     hm-drag="drag_ads_panel($event)"
+     hm-dragstart="dragstart_ads_panel($event)"
+     hm-dragend="dragend_ads_panel($event)"
+     >
+
+  <div class=input_wrapper>
+    <form action="" ng-submit="add_product();">
+      <input class=submit type=submit value=Ajouter />
+      <input id="#add_product" type=text placeholder="Ajouter un produit" ng-model="to_add" />
+    </form>
+  </div>
+
+  <div class=productlist>
+    <div class=item ng-repeat="p in list.products"
+	 hm-swipeleft="show_ads_for(p.name)"
+	 >
+      <div class=content>
+	<span ng-click="remove_product(p.name)" style="float: right">x</span>
+	<img class=star src="images/star.jpg" ng-show="p.has_ads"/>
+	{{p.name}}
+      </div>
+    </div>
+  </div>
+
+  <div id="ads_panel" class=off hm-swiperight="swiperight_ads_panel($event)" hm-options="{swipe_velocity: 0.1}">
+    <div class=content> 
+
+      {{ads.length}} promos {{ads_category}} disponible !!!
+
+      <div class=ad ng-repeat="p in ads">
+	{{p.name}}
+	{{p.text}}
+      </div>
+    </div>
+
+  </div>
+</div>
