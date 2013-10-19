@@ -4,3 +4,11 @@
 *.jar
 *.war
 *.ear
+
+.DS_Store
+
+*~
+
+target/
+
+.idea*
