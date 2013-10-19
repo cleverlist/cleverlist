@@ -17,12 +17,16 @@
 
   <div class=productlist>
     <div class=item ng-repeat="p in list.products"
-	 hm-swipeleft="show_ads_for(p.name)"
-	 >
+	 hm-tap="show_ads_for(p.name)"
+	 hm-swipeleft="toggle_mark(p.name)"
+	 hm-swiperight="toggle_mark(p.name)"
       <div class=content>
 	<span ng-click="remove_product(p.name)" style="float: right">x</span>
 	<img class=star src="images/star.jpg" ng-show="p.has_ads"/>
 	{{p.name}}
+      </div>
+      <div class=ads>
+        <div class=ad ng-repeat="p in ads">
       </div>
     </div>
   </div>

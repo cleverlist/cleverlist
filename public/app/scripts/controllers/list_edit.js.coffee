@@ -11,13 +11,12 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
       #Create a new list.
       shoppinglist.create().then (l) -> $scope.list = l; localStorage.setItem("list_id", l._id);
   .then ->
-    for p, i in $scope.list.products
+    for p, i in $scope.list.products || []
       get_has_ads(p);
 
   $scope.add_product = () ->
     if $scope.to_add then $scope.list.add($scope.to_add);
     $scope.to_add=null;
-
 
   $scope.remove_product = (i) -> if i then $scope.list.remove(i);
 

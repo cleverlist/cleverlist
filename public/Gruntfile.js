@@ -78,10 +78,10 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/api',
-          host: 'localhost',
-          port: 8081,
+          host: '192.168.230.68',
+          port: 9000,
           https: false,
-          changeOrigin: false
+          changeOrigin: true
         }
       ],
 
@@ -98,7 +98,7 @@ module.exports = function (grunt) {
 	      modRewrite([
 	      	'/list_edit$ /'
               ]),
-              //lrSnippet,
+              lrSnippet,
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
             ];
@@ -341,6 +341,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
+      'configureProxies',
       'watch'
     ]);
   });
