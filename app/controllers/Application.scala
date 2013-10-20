@@ -82,11 +82,8 @@ object ProductLists extends Controller {
 
   def getList(userId: Long) = Action {
 
-    val q = MongoDBObject("user_id" -> userId)
-
-    val json = "%s".format(
-      coll.find(q).toList.mkString(",")
-    )
+    // Récupérer le document liste courses
+    val json = Json.parse(coll.findOne(MongoDBObject("user_id" -> userId)).get.toString)
 
     Ok(json).as("application/json")
   }
@@ -112,8 +109,6 @@ object Discounts extends Controller {
     implicit request =>
 
       val q = MongoDBObject("category" -> id)
-
-      println("TEST")
 
       val json = "[%s]".format(
         coll.find(q).toList.mkString(",")
