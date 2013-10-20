@@ -29,7 +29,9 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     $scope.to_add='';
     $("#add_product").val('');
 
-  $scope.remove_product = (i) -> $scope.list.remove(i);
+  $scope.remove_product = (i) ->
+    $scope.list.remove(i);
+    if $scope.focus_ads == i then $scope.focus_ads = null
 
   $scope.ads_category = null;
 

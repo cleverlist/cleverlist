@@ -30,12 +30,13 @@
 	     hm-swiperight="toggle_check(p)">
           <div class=content >
             <span ng-show="p.has_ads"> </span>
-	    <span class="remove-button glyphicon glyphicon-remove-circle" ng-click="remove_product(p.name)" style="float: right"></span>
+	    <span class="remove-button glyphicon glyphicon-remove-circle"
+	    ng-click="remove_product(p.name);" style="float: right"></span>
             <span class="star glyphicon glyphicon-star" ng-show="p.has_ads"> </span>
 	    {{p.name}}
           </div>
         </div>
-        <div ng-show="focus_ads == p.name && ads_for[p.name].length > 0" ng-animate="'collapse'">
+        <div ng-show="p.name && focus_ads == p.name && ads_for[p.name].length > 0">
           <div class="ad discount-row" ng-repeat="p in ads_for[p.name]"
                discountad discount="p">
             <span class=image>

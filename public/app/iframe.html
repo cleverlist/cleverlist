@@ -1,11 +1,45 @@
 
+<script>
+window.onscroll = function(ev) {
+  ev.preventDefault();
+}
+</script>
+
+<link rel="stylesheet" href="styles/welcome.css">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:500,700' rel='stylesheet' type='text/css'>
+
 <style>
-iframe { overflow: hidden; width: 360; height: 640;  }
+iframe { overflow: hidden; width: 400; height: 640;  display: inline-block;
+
+position: fixed;
+top: 20px;
+right: 10%;
+}
+body, html { overflow: hidden; }
+
+.welcomeview2
+{
+  position: fixed;
+  top: 40%;
+  left: 20%;
+}
+
 </style>
 
 <body style="background: black">
-<div style="margin: auto auto auto auto; width: 380; height: 700; overflow: hidden;">
-<iframe src="http://localhost:9999/index.html" scrolling="no"
+
+<div class=welcomeview2 >
+<h1 class=logo>
+<img src="images/logo_large.png"/>
+Clever<span class=green>List</span>
+</h1>
+
+<div class=slogan>Write your list, <span class=green>Save money.</span></div>
+
+</div>
+
+<div style="margin: auto auto auto auto; width: 420; height: 700; overflow: hidden;">
+<iframe src="http://localhost:9999/index.html"
         style="">
 </iframe>
 </div>
