@@ -14,7 +14,7 @@ angular.module('cleverlistApp')
       ]
     service =
         get: (cat) -> return $http.get('/api/discounts/' + cat)
-        category_has_ad: (cat) -> return $q.when(cat.discount_id);#db[cat].length > 0);
+        category_has_ad: (cat) -> return $http.get('/api/discounts/' + );
 
 
     return service;
