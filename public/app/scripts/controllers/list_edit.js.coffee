@@ -1,5 +1,6 @@
 'use strict';
 
+products_categories = ['lait', 'chocolat','test']
 
 angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'shoppinglist', 'ads', ($scope, $q, shoppinglist, ads) ->
 
@@ -22,7 +23,7 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     if $scope.to_add then $q.when(shoppinglist.add($scope.to_add)).then (l) -> $scope.list = l.data;
     $scope.to_add=null;
 
-  $scope.remove_product = (i) -> if i then
+  $scope.remove_product = (i) -> if i
     console.log(angular.fromJson($scope.list.products));$scope.list.remove(i);
 
   $scope.ads_category = null;
@@ -45,4 +46,9 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     console.log($scope.focus_ads); if $scope.focus_ads == cat then return $scope.focus_ads = null;
     $scope.focus_ads = cat;
     ads.get(cat).then (ret) -> $scope.ads_for[cat] = ret.data;
+
+
+  $("#add_product").typeahead name: 'prod', local: ['lait', 'chocolat','test', 'laictise']
+  $("#add_product").on('typeahead:selected', $scope.add_product())
+
   ]
