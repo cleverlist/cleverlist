@@ -43,7 +43,7 @@ angular.module('cleverlistApp')
         if p != -1 then @products.splice(p, 1);
         @save()
 
-      save: -> console.log(this);$http.post('/api/productlists/save/' + this.user_id, @toJson())
+      save: -> $http.post('/api/productlists/save/' + this.user_id, @toJson())
 
       toJson: -> angular.toJson(this)
 

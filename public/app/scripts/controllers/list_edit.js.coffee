@@ -13,7 +13,6 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
       #Create a new list.
       shoppinglist.create().then (l) -> $scope.list = l; localStorage.setItem("list_id", l._id);
   .then ->
-    console.log("YAY");
     for p in $scope.list.products
       get_has_ads(p);
 
@@ -23,12 +22,12 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
 
   $scope.add_product = () ->
     $scope.to_add = $("#add_product").val();
-    if $scope.to_add then shoppinglist.add($scope.to_add).then (l) -> $scope.list = l
+    if $scope.to_add then shoppinglist.add($scope.to_add).then (l) ->
+      $scope.list = l
+      for p in $scope.list.products
+        get_has_ads(p);
     $scope.to_add='';
     $("#add_product").val('');
-    for p in $scope.list.products
-      console.log(p)
-      get_has_ads(p);
 
   $scope.remove_product = (i) -> $scope.list.remove(i);
 
