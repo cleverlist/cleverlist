@@ -13,7 +13,7 @@ angular.module('cleverlistApp')
         return -1
 
       add: (i) ->
-        if @position_of(i) == -1 then console.log(@products);console.log("TEST");@products.unshift(name: i); console.log(@products);@save();
+        if @position_of(i) == -1 then @products.unshift(name: i);@save();
 
       check: (i) ->
         pos = @position_of(i)
@@ -43,7 +43,7 @@ angular.module('cleverlistApp')
         if p != -1 then @products.splice(p, 1);
         @save()
 
-      save: -> $http.post('/api/productlists/save/' + this.user_id, @toJson())
+      save: -> console.log(this);$http.post('/api/productlists/save/' + this.user_id, @toJson())
 
       toJson: -> angular.toJson(this)
 

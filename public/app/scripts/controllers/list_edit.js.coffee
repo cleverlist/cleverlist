@@ -21,9 +21,7 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     else $scope.list.check(cat.name);
 
   $scope.add_product = () ->
-    console.log($scope.to_add);
     $scope.to_add = $("#add_product").val('');
-    #if $scope.to_add then shoppinglist.add($scope.to_add);
     if $scope.to_add then $scope.list.add($scope.to_add);
     $scope.to_add='';
     $("#add_product").val('');
