@@ -38,11 +38,13 @@
         <div ng-show="focus_ads == p.name && ads_for[p.name].length > 0" ng-animate="'collapse'">
           <div class="ad discount-row" ng-repeat="p in ads_for[p.name]"
                discountad discount="p">
-            <img ng-src="{{p.img_path}}" width="25" />
+            <span class=image>
+              <img ng-src="{{p.img_path}}" height="45"/>
+            </span>
             <span class=brand>{{p.brand}}</span>
             <span class=pull-right>
-              <span class=price> {{p.discount_price}}€</span>
               <span class=original-price>{{p.original_price}}€</span>
+              <span class=price> {{p.discount_price}}€</span>
             </span>
           </div>
         </div>

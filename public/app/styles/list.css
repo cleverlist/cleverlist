@@ -160,6 +160,7 @@ input#add_product {
 
 /* line 115, ../sass/list.sass */
 .productlist {
+  background-color: #e1e1e3;
   border-top: 2px solid #e1e1e3;
 }
 
@@ -180,25 +181,41 @@ input#add_product {
 /* line 129, ../sass/list.sass */
 .discount-row {
   float: right;
-  height: 30px;
+  height: 50px;
   background: white;
   color: #454344;
   width: 90%;
   margin: 2px 0 2px 0;
 }
 /* line 136, ../sass/list.sass */
+.discount-row .image {
+  display: inline-block;
+  width: 30px;
+}
+/* line 137, ../sass/list.sass */
+.discount-row .image img {
+  vertical-align: middle;
+}
+/* line 141, ../sass/list.sass */
 .discount-row .price {
+  height: 50px;
   color: #f09d13;
   font-size: 20px;
+  padding-right: 20px;
+  width: 40px;
+  text-align: right;
+  display: inline-block;
 }
-/* line 139, ../sass/list.sass */
+/* line 149, ../sass/list.sass */
 .discount-row .original-price {
+  height: 50px;
   text-decoration: line-through;
-  color: #e1e1e3;
+  color: #454344;
   font-style: italic;
+  padding-right: 5px;
 }
 
-/* line 144, ../sass/list.sass */
+/* line 156, ../sass/list.sass */
 .discount-row.active {
   background: #1bbc9b;
   color: white;

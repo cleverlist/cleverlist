@@ -113,7 +113,7 @@ input#add_product
   width: 70%
 
 .productlist
-
+  background-color: $lightgray
   border-top: 2px solid #e1e1e3
 
 .checkout-row
@@ -128,18 +128,30 @@ input#add_product
 
 .discount-row
   float: right
-  height: 30px
+  height: 50px
   background: white
   color: $gray
   width: 90%
   margin: 2px 0 2px 0
+  .image
+    img
+      vertical-align: middle
+    display: inline-block
+    width: 30px
   .price
+    height: 50px
     color: $orange
     font-size: 20px
+    padding-right: 20px
+    width: 40px
+    text-align: right
+    display: inline-block
   .original-price
+    height: 50px
     text-decoration: line-through
-    color: $lightgray
+    color: $gray
     font-style: italic
+    padding-right: 5px
 
 .discount-row.active
   background: $green
