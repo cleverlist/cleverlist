@@ -12,6 +12,6 @@ angular.module('cleverlistApp')
       add_discout: (d) -> discounts.push(d);
       remove_discout: (d) ->
 
-      discouts: -> discouts
+      discounts: -> discounts
     return service
   ]
