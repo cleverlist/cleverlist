@@ -30,23 +30,11 @@
       </div>
       <div class=ads ng-show="focus_ads == p.name && ads_for[p.name].length > 0">
         <div class=ad ng-repeat="p in ads_for[p.name]">
-          {{p.name}}
-	  {{p.text}}
+            Promotion {{p.brand}}: {{p.discount_price}}€ au lieu de {{p.original_price}}€
+            <img ng-src="{{p.img_path}}" width="150"/>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="ads_panel" class=off hm-swiperight="swiperight_ads_panel($event)" hm-options="{swipe_velocity: 0.1}">
-    <div class=content> 
-
-      {{ads.length}} promos {{ads_category}} disponible !!!
-
-      <div class=ad ng-repeat="p in ads">
-	{{p.name}}
-	{{p.text}}
-      </div>
-    </div>
-
-  </div>
 </div>

@@ -3,10 +3,11 @@
 
 angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'shoppinglist', 'ads', ($scope, $q, shoppinglist, ads) ->
 
-  get_has_ads = (p) -> ads.category_has_ad(p.name).then (b) -> p.has_ads = b; console.log(p);
+  # TODO: revoir l'appel !!!
+  get_has_ads = (p) -> ads.category_has_ad(p).then (b) -> p.has_ads = b;
 
-  $q.when(shoppinglist.find(localStorage.getItem("list_id"))).then (l) ->
-    if l then $scope.list = l
+  $q.when(shoppinglist.find(100)).then (l) ->
+    if l then $scope.list = l.data;
     else
       #Create a new list.
       shoppinglist.create().then (l) -> $scope.list = l; localStorage.setItem("list_id", l._id);
@@ -16,11 +17,13 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
 
   $scope.toggle_check = (cat) -> cat.checked = !cat.checked;
 
+    #TODO: remplacer par userId
   $scope.add_product = () ->
-    if $scope.to_add then $scope.list.add($scope.to_add);
+    if $scope.to_add then $q.when(shoppinglist.add($scope.to_add)).then (l) -> $scope.list = l.data;
     $scope.to_add=null;
 
-  $scope.remove_product = (i) -> if i then $scope.list.remove(i);
+  $scope.remove_product = (i) -> if i then
+    console.log(angular.fromJson($scope.list.products));$scope.list.remove(i);
 
   $scope.ads_category = null;
 
@@ -39,7 +42,7 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
   $scope.focus_ads = null;
   $scope.ads_for = {};
   $scope.toggle_ads_for = (cat) ->
-    if $scope.focus_ads == cat then return $scope.focus_ads = null;
+    console.log($scope.focus_ads); if $scope.focus_ads == cat then return $scope.focus_ads = null;
     $scope.focus_ads = cat;
-    ads.get(cat).then (ret) -> $scope.ads_for[cat] = ret; console.log(ret);
+    ads.get(cat).then (ret) -> $scope.ads_for[cat] = ret.data;
   ]

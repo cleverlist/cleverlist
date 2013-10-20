@@ -71,7 +71,7 @@ module.exports = function (grunt) {
     },
     connect: {
       options: {
-        port: 9000,
+        port: 9999,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: '0.0.0.0',
         livereload: 35729
@@ -79,7 +79,7 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/api',
-          host: '192.168.230.68',
+          host: '0.0.0.0',
           port: 9000,
           https: false,
           changeOrigin: true

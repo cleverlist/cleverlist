@@ -2,26 +2,17 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+GET     /api/productlists/:id           controllers.ProductLists.getList(id: Long)
 
-GET     /                           controllers.Assets.at(path="/public/dist", file="index.html")
+GET     /api/productlists/:id/insert/:name  controllers.ProductLists.addProduct(id: Long, name: String)
 
-#GET     /                           controllers.Articles.index
-
-# Map static resources from the /public folder to the /assets URL path
-GET     /*file               controllers.Assets.at(path="/public/dist", file)
-
-# GET     /api/productlists/:id           controllers.ProductLists.getAll(id: Long)
-
-# GET     /api/productlists/all           controllers.ProductLists.getAll
+#GET     /api/productlists/all           controllers.ProductLists.getAll
 
 # Saves the whole list
-#POST    /api/list/save               controllers.ProductLists.insert
-
-# Updates the list
-#POST    /api/list/update               controllers.ProductLists.save
+POST    /api/productlists/save/               controllers.ProductLists.save()
 
 # Retrieves all discounts on a given product type (category)
-GET     /api/discounts/:id               controllers.Discounts.findAll(id: Long)
+GET     /api/discounts/:id               controllers.Discounts.findAll(id: String)
 
 # Creates an account
 #POST    /api/createAccount          controllers.Account.create
