@@ -1,5 +1,5 @@
-<div id=navbar>
-  <img src="images/top_logo.jpg"/>
+<div id=navbar class=row>
+  <img class=logo src="images/top_logo.jpg"/>
 </div>
 
 <div id="listview"
@@ -8,23 +8,24 @@
      hm-dragend="dragend_ads_panel($event)"
      >
 
-  <div class=input_wrapper>
+  <div class="input_wrapper row">
     <form action="" ng-submit="add_product();">
-      <input class=submit type=submit value=Ajouter />
+        <span class="icon glyphicon glyphicon-search"></span>
       <input id="#add_product" type=text placeholder="Ajouter un produit" ng-model="to_add" />
     </form>
   </div>
 
   <div class=productlist>
-    <div class=item
+    <div class="item row"
          ng-class="{checked: p.checked}"
          ng-repeat="p in list.products"
 	 hm-tap="toggle_ads_for(p.name)"
 	 hm-swipeleft="toggle_check(p)"
 	 hm-swiperight="toggle_check(p)">
       <div class=content >
-	<span ng-click="remove_product(p.name)" style="float: right">x</span>
-	<img class=star src="images/star.jpg" ng-show="p.has_ads"/>
+        <span ng-show="p.has_ads"> </span>
+	<span class="remove-button glyphicon glyphicon-remove-circle" ng-click="remove_product(p.name)" style="float: right"></span>
+        <span class="star glyphicon glyphicon-star" ng-show="p.has_ads"> </span>
 	{{p.name}}
       </div>
       <div class=ads ng-show="focus_ads == p.name && ads_for[p.name].length > 0">

@@ -1,0 +1,21 @@
+/* line 11, ../sass/misc.sass */
+.green {
+  color: #1bbc9b;
+}
+
+/* line 14, ../sass/misc.sass */
+body {
+  background: #373737;
+  font-family: Ubuntu, Arial, sans-serif;
+  font-weight: 500;
+  color: #e1e1e3;
+}
+
+/* line 20, ../sass/misc.sass */
+#navbar {
+  text-align: center;
+}
+/* line 21, ../sass/misc.sass */
+#navbar .logo {
+  margin-top: 5px;
+}
