@@ -3,7 +3,12 @@
   color: #1bbc9b;
 }
 
-/* line 14, ../sass/misc.sass */
+/* line 13, ../sass/misc.sass */
+.orange {
+  color: #f09d13;
+}
+
+/* line 16, ../sass/misc.sass */
 body {
   background: #373737;
   font-family: Ubuntu, Arial, sans-serif;
@@ -11,13 +16,18 @@ body {
   color: #e1e1e3;
 }
 
-/* line 20, ../sass/misc.sass */
+/* line 22, ../sass/misc.sass */
 #navbar {
   text-align: center;
 }
-/* line 21, ../sass/misc.sass */
+/* line 23, ../sass/misc.sass */
 #navbar .logo {
   margin-top: 5px;
+}
+
+/* line 27, ../sass/misc.sass */
+a {
+  text-decoration: none;
 }
 
 /* line 3, ../sass/welcome.sass */
@@ -47,5 +57,3 @@ body {
 .welcomeview .logo {
   margin-top: 100px;
 }
-
-.collapse{position:relative;height:0;overflow:hidden;-webkit-transition:height 0.35s ease;-moz-transition:height 0.35s ease;-o-transition:height 0.35s ease;transition:height 0.35s ease;}.collapse.in{height:auto;}`

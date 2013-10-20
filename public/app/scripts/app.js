@@ -4,7 +4,8 @@ angular.module('cleverlistApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'hmTouchEvents'
+  'hmTouchEvents',
+   'ui.bootstrap'
 ])
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -15,6 +16,10 @@ angular.module('cleverlistApp', [
       .when('/list_edit', {
         templateUrl: 'views/list_edit.html',
         controller: 'ListEditCtrl'
+      })
+      .when('/checkout', {
+        templateUrl: 'views/checkout.html',
+        controller: 'CheckoutCtrl'
       })
       .when('/ads_panel', {
         templateUrl: 'views/ads_panel.html',

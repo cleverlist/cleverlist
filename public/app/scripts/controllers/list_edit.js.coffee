@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'shoppinglist', 'ads', ($scope, $q, shoppinglist, ads) ->
+products_categories = ['lait', 'chocolat','test']
+
+angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'shoppinglist', 'ads', 'checkout', ($scope, $q, shoppinglist, ads, checkout) ->
 
   # TODO: revoir l'appel !!!
   get_has_ads = (p) -> ads.category_has_ad(p).then (b) -> p.has_ads = (b.data.length > 0);
@@ -14,12 +16,15 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     for p in $scope.list.products
       get_has_ads(p);
 
-  $scope.toggle_check = (cat) -> cat.checked = !cat.checked;
+  $scope.toggle_check = (cat) ->
+    if cat.checked then $scope.list.uncheck(cat.name);
+    else $scope.list.check(cat.name);
 
   $scope.add_product = () ->
     if $scope.to_add then $q.when(shoppinglist.add($scope.to_add)).then (l) ->
       $scope.list = l.data;
     $scope.to_add=null;
+    $("#add_product").val('');
 
   $scope.remove_product = (i) -> $scope.list.remove(i);
 
@@ -43,4 +48,15 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     if $scope.focus_ads == cat then return $scope.focus_ads = null;
     $scope.focus_ads = cat;
     ads.get(cat).then (ret) -> $scope.ads_for[cat] = ret.data;
+
+
+  $("#add_product").typeahead name: 'prod', local: product_categories, limit: 10
+  $("#add_product").on 'typeahead:selected', (s, u) ->
+    $scope.to_add = u.value;
+    $scope.add_product();
+    $scope.$apply();
+
+  $scope.is_checked = (ch) -> (p) -> return (ch && p.checked) || (!ch && !p.checked)
+
+  $scope.add_discount = (d) -> checkout.add(d);
   ]
