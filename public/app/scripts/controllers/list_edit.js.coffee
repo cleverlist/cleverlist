@@ -3,7 +3,7 @@
 angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'shoppinglist', 'ads', ($scope, $q, shoppinglist, ads) ->
 
   # TODO: revoir l'appel !!!
-  get_has_ads = (p) -> ads.category_has_ad(p).then (b) -> p.has_ads = b;
+  get_has_ads = (p) -> ads.category_has_ad(p).then (b) -> p.has_ads = (b.data.length > 0);
 
   $q.when(shoppinglist.find(100)).then (l) ->
     if l then $scope.list = l;

@@ -5,7 +5,7 @@ angular.module('cleverlistApp')
     # AngularJS will instantiate a singleton by calling "new" on this function
     service =
         get: (cat) -> return $http.get('/api/discounts/' + cat);
-        category_has_ad: (cat) -> console.log(cat); return $http.get('/api/discounts/' + cat);
+        category_has_ad: (cat) -> return $http.get('/api/discounts/' + cat.category_name);
 
 
     return service;
