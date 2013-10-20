@@ -5,7 +5,7 @@ angular.module('cleverlistApp', [
   'ngResource',
   'ngSanitize',
   'hmTouchEvents',
-   'ui.bootstrap'
+
 ])
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider

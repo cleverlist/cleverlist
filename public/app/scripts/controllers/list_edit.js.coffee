@@ -21,9 +21,11 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     else $scope.list.check(cat.name);
 
   $scope.add_product = () ->
-    if $scope.to_add then $q.when(shoppinglist.add($scope.to_add)).then (l) ->
-      $scope.list = l.data;
-    $scope.to_add=null;
+    console.log($scope.to_add);
+    $scope.to_add = $("#add_product").val('');
+    #if $scope.to_add then shoppinglist.add($scope.to_add);
+    if $scope.to_add then $scope.list.add($scope.to_add);
+    $scope.to_add='';
     $("#add_product").val('');
 
   $scope.remove_product = (i) -> $scope.list.remove(i);
@@ -56,7 +58,15 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
     $scope.add_product();
     $scope.$apply();
 
+  $("#add_product").on 'typeahead:autocompleted', (s, u) ->
+    $scope.to_add = u.value;
+    $scope.add_product();
+    $scope.$apply();
+
   $scope.is_checked = (ch) -> (p) -> return (ch && p.checked) || (!ch && !p.checked)
 
   $scope.add_discount = (d) -> checkout.add(d);
+
+
+
   ]

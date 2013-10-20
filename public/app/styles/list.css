@@ -31,9 +31,9 @@ a {
 }
 
 /* line 3, ../sass/list.sass */
-/*.row {
+.row {
   height: 50px;
-} */
+}
 
 /* line 6, ../sass/list.sass */
 #ads_panel {
@@ -76,18 +76,6 @@ a {
   height: 100%;
   background-color: #e1e1e3;
 }
-
-.collapse-show-setup {
-    -webkit-transition:all linear 0.3s;
-    -moz-transition:all linear 0.3s;
-    -ms-transition:all linear 0.3s;
-    -o-transition:all linear 0.3s;
-    transition:all linear 0.3s;
-    opacity:0;
-    height: 0;
-}
-
-.collapse-show-setup.box-show-start { opacity:1; height: 100px; }
 
 /* line 47, ../sass/list.sass */
 .item {
@@ -182,4 +170,35 @@ input#add_product {
   color: #e1e1e3;
   font-size: 30px;
   padding-top: 10px;
+}
+
+/* line 126, ../sass/list.sass */
+.pull-right {
+  float: right;
+}
+
+/* line 129, ../sass/list.sass */
+.discount-row {
+  float: right;
+  height: 30px;
+  background: #1bbc9b white;
+  width: 90%;
+  margin: 2px 0 2px 0;
+}
+/* line 135, ../sass/list.sass */
+.discount-row .price {
+  color: #f09d13;
+  font-size: 20px;
+}
+/* line 138, ../sass/list.sass */
+.discount-row .original-price {
+  text-decoration: line-through;
+  color: #e1e1e3;
+  font-style: italic;
+}
+
+/* line 143, ../sass/list.sass */
+.discount-row.active {
+  background: #1bbc9b;
+  color: white;
 }

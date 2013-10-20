@@ -11,6 +11,6 @@ angular.module('cleverlistApp').controller 'CheckoutCtrl', ['$scope', 'checkout'
         ]
 
   $scope.sum = 0;
-  $scope.sum += Math.abs(p.price) for p in $scope.discounts
+  $scope.sum += parseInt(p.discount_price) - parseInt(p.original_price) for p in $scope.discounts
 
   ]
