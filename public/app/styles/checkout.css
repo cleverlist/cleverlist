@@ -1,0 +1,84 @@
+/* line 11, ../sass/misc.sass */
+.green {
+  color: #1bbc9b;
+}
+
+/* line 13, ../sass/misc.sass */
+.orange {
+  color: #f09d13;
+}
+
+/* line 16, ../sass/misc.sass */
+body {
+  background: #373737;
+  font-family: Ubuntu, Arial, sans-serif;
+  font-weight: 500;
+  color: #e1e1e3;
+}
+
+/* line 22, ../sass/misc.sass */
+#navbar {
+  text-align: center;
+}
+/* line 23, ../sass/misc.sass */
+#navbar .logo {
+  margin-top: 5px;
+}
+
+/* line 27, ../sass/misc.sass */
+a {
+  text-decoration: none;
+}
+
+/* line 3, ../sass/checkout.sass */
+.code-barre {
+  background-color: #1bbc9b;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* line 10, ../sass/checkout.sass */
+.code-barre .img {
+  margin-top: 10px;
+}
+
+/* line 13, ../sass/checkout.sass */
+.back-to-my-list {
+  text-align: left;
+  padding-left: 10px;
+  background-color: #454344;
+  color: #e1e1e3;
+  font-size: 20px;
+}
+/* line 19, ../sass/checkout.sass */
+.back-to-my-list .content {
+  padding-top: 10px;
+}
+
+/* line 23, ../sass/checkout.sass */
+.item .price .price {
+  color: #f09d13;
+  float: right;
+  padding-right: 20px;
+}
+
+/* line 29, ../sass/checkout.sass */
+.checkout-total {
+  background-color: #e1e1e3;
+  color: #454344;
+  font-size: 20px;
+}
+/* line 30, ../sass/checkout.sass */
+.checkout-total .content {
+  padding-top: 10px;
+  padding-left: 20px;
+}
+/* line 37, ../sass/checkout.sass */
+.checkout-total .price {
+  font-size: 30px;
+  color: #1bbc9b;
+  float: right;
+  padding-right: 20px;
+}

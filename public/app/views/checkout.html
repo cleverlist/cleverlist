@@ -1,0 +1,42 @@
+<div id=navbar class=row>
+  <img class=logo src="images/top_logo.jpg"/>
+</div>
+
+<a class href="/list_edit">
+<div class="row back-to-my-list">
+    <div class=content>
+      <span class="glyphicon glyphicon-list"></span>
+      Back to my list
+    </div>
+</div>
+</a>
+
+<div class=code-barre>
+  <div class=text>
+  PRESENT THIS CODE TO THE CACHIER
+  </div>
+  <div class=img>
+    <img src="/images/code-barre.jpg"/>
+  </div>
+
+</div>
+
+<div class="row item" ng-repeat="d in discounts">
+  <div class=content>
+  <span class="orange glyphicon glyphicon-star"> </span>
+  {{d.name}}
+  <span class=price>
+    {{d.price}}€
+  </span>
+  </div>
+</div>
+<div class="row checkout-total">
+  <div class=content>
+    Total saved:
+    <span class=price>
+      {{sum}}€
+    </span>
+  </div>
+</div>
+
+

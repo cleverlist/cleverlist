@@ -79,10 +79,10 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/api',
-          host: '0.0.0.0',
+          host: '192.168.230.68',
           port: 9000,
           https: false,
-          changeOrigin: true
+          changeOrigin: false
         }
       ],
 
@@ -97,7 +97,8 @@ module.exports = function (grunt) {
             return [
 	      proxySnippet,
 	      modRewrite([
-	      	'/list_edit$ /'
+	      	  '/list_edit$ /',
+	      	  '/checkout$ /'
               ]),
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
