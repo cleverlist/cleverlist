@@ -46,19 +46,3 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-
-
-
-body {
-    background: #373737;
-    font-family: Arial, sans-serif;
-    color: #333;
-}
-
-
-#navbar
-{
-    height: 40px;
-    text-align: center;
-}

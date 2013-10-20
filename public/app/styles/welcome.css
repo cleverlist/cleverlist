@@ -1,24 +1,49 @@
+/* line 11, ../sass/misc.sass */
+.green {
+  color: #1bbc9b;
+}
 
-.welcomeview
-{
+/* line 14, ../sass/misc.sass */
+body {
+  background: #373737;
+  font-family: Ubuntu, Arial, sans-serif;
+  font-weight: 500;
+  color: #e1e1e3;
+}
+
+/* line 20, ../sass/misc.sass */
+#navbar {
   text-align: center;
 }
-
-.welcomeview .logo
-{
-    margin-top: 100px;
+/* line 21, ../sass/misc.sass */
+#navbar .logo {
+  margin-top: 5px;
 }
 
-.slidetobegin
-{
-    border-radius: 2px;
-    padding: 10px;
-    font-weight: 600;
-    margin: 100px auto 0 auto;
-    display: block;
-    background: #272727;
-    color: #777171;
-    width: 200px;
+/* line 3, ../sass/welcome.sass */
+.welcomeview {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+/* line 7, ../sass/welcome.sass */
+.welcomeview h1 {
+  letter-spacing: -1px;
+  color: white;
+  font-weight: 700;
+  font-size: 35px;
+}
+/* line 12, ../sass/welcome.sass */
+.welcomeview h1 img {
+  vertical-align: text-bottom;
+}
+/* line 14, ../sass/welcome.sass */
+.welcomeview .slogan {
+  margin-top: 50px;
+  font-size: 12px;
 }
 
-
+/* line 18, ../sass/welcome.sass */
+.welcomeview .logo {
+  margin-top: 100px;
+}

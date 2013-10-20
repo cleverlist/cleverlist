@@ -20,6 +20,7 @@ module.exports = function (grunt) {
   var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
   var modRewrite = require('connect-modrewrite');
   grunt.loadNpmTasks('grunt-connect-proxy');
+  grunt.loadNpmTasks('grunt-contrib-compass');
 
   var yeomanConfig = {
     app: 'app',
@@ -178,7 +179,8 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
             '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/styles/fonts/*'
+            '<%= yeoman.dist %>/styles/fonts/*',
+            '<%= yeoman.dist %>/fonts/*'
           ]
         }
       }
@@ -229,6 +231,29 @@ module.exports = function (grunt) {
       //   }
       // }
     },
+    compass: {                  // Task
+      dist: {                   // Target
+        options: {              // Target options
+          sassDir: 'app/sass',
+          cssDir: 'app/styles',
+          environment: 'production'
+        }
+      },
+      watch: {                   // Target
+        options: {              // Target options
+          sassDir: 'app/sass',
+          cssDir: 'app/styles',
+          environment: 'development',
+          watch: true
+        }
+      },
+      dev: {                    // Another target
+        options: {
+          sassDir: 'sass',
+          cssDir: 'css'
+        }
+      }
+    },
     htmlmin: {
       dist: {
         options: {
@@ -263,7 +288,8 @@ module.exports = function (grunt) {
             '.htaccess',
             'bower_components/**/*',
             'images/{,*/}*.{gif,webp}',
-            'styles/fonts/*'
+            'styles/fonts/*',
+            'fonts/*'
           ]
         }, {
           expand: true,
@@ -282,16 +308,22 @@ module.exports = function (grunt) {
       }
     },
     concurrent: {
+      watch: [
+        'watch',
+        'compass:watch',
+      ],
       server: [
         'coffee:dist',
         'copy:styles'
       ],
       test: [
+        'compass:dist',
         'coffee',
         'copy:styles'
       ],
       dist: [
         'coffee',
+        'compass:dist',
         'copy:styles',
         'imagemin',
         'svgmin',
@@ -341,7 +373,7 @@ module.exports = function (grunt) {
       'autoprefixer',
       'connect:livereload',
       'configureProxies',
-      'watch'
+      'concurrent:watch'
     ]);
   });
 
