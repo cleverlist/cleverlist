@@ -181,23 +181,24 @@ input#add_product {
 .discount-row {
   float: right;
   height: 30px;
-  background: #1bbc9b white;
+  background: white;
+  color: #454344;
   width: 90%;
   margin: 2px 0 2px 0;
 }
-/* line 135, ../sass/list.sass */
+/* line 136, ../sass/list.sass */
 .discount-row .price {
   color: #f09d13;
   font-size: 20px;
 }
-/* line 138, ../sass/list.sass */
+/* line 139, ../sass/list.sass */
 .discount-row .original-price {
   text-decoration: line-through;
   color: #e1e1e3;
   font-style: italic;
 }
 
-/* line 143, ../sass/list.sass */
+/* line 144, ../sass/list.sass */
 .discount-row.active {
   background: #1bbc9b;
   color: white;
