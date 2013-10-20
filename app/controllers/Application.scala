@@ -83,17 +83,20 @@ object ProductLists extends Controller {
   def getList(userId: Long) = Action {
 
     // Récupérer le document liste courses
-    val json = Json.parse(coll.findOne(MongoDBObject("user_id" -> userId)).get.toString)
+    val before = coll.findOne(MongoDBObject("user_id" -> userId)).get.toString
+
+    val json = Json.parse(before)
 
     Ok(json).as("application/json")
   }
 
   // saves a new product list
-  def save() = Action {
+  def save(id: Int) = Action {
     implicit request =>
 
       val savedata = com.mongodb.util.JSON.parse(Json.stringify(request.body.asJson.get)).asInstanceOf[DBObject]
-      coll.save(savedata)
+
+      coll.update(MongoDBObject("user_id" -> id), $set("products" -> savedata.get("products")))
 
       Ok("{\"id\" : %s}".format(savedata.get("_id"))).as("application/json")
   }

@@ -1,71 +1,65 @@
 [
-
 {
   'category': 'Chocolats',
-  'brand': Noir dessert Nesle',
+  'brand': 'Noir dessert Nesle',
   'original_price': '3',
-  'discount_price': '2'
+  'discount_price': '2',
   'img_path': 'images/discount_imgs/chocolat_nesle.jpg'
 },
 {
   'category': 'Chocolats',
-  'brand': Lait Milka',
+  'brand': 'Lait Milka',
   'original_price': '2',
-  'discount_price': '1.50'
+  'discount_price': '1.50',
   'img_path': 'images/discount_imgs/milka.jpg'
 },
 {
   'category': 'Chocolats',
   'brand': 'Noir Lindt',
   'original_price': '3',
-  'discount_price': '2'
+  'discount_price': '2',
   'img_path': 'images/discount_imgs/chocolat_lindt.jpg'
 },
-
 {
   'category': 'Rasoirs',
   'brand': 'Rasoirs Bic',
   'original_price': '3',
-  'discount_price': '2'
+  'discount_price': '2',
   'img_path': 'images/discount_imgs/rasoir1.jpg'
 },
 {
   'category': 'Rasoirs',
   'brand': '5 Rasoirs Gilette',
   'original_price': '4',
-  'discount_price': '3.5'
+  'discount_price': '3.5',
   'img_path': 'images/discount_imgs/rasoir2.jpg'
 },
 {
   'category': 'Rasoirs',
   'brand': '10 Rasoirs Wilkinson',
   'original_price': '7',
-  'discount_price': '5'
+  'discount_price': '5',
   'img_path': 'images/discount_imgs/rasoir3.jpg'
 },
-
-
 {
   'category': 'Jus de fruits',
   'brand': '1L Orange Jocker',
   'original_price': '3',
-  'discount_price': '2'
+  'discount_price': '2',
   'img_path': 'images/discount_imgs/jocker.jpg'
 },
 {
   'category': 'Jus de fruits',
   'brand': '2L Jus de raisins Granini',
   'original_price': '4',
-  'discount_price': '3.5'
+  'discount_price': '3.5',
   'img_path': 'images/discount_imgs/granini.jpg'
 },
 {
   'category': 'Jus de fruits',
   'brand': '5L Jus d'orange Tropicana',
   'original_price': '7',
-  'discount_price': '5'
+  'discount_price': '5',
   'img_path': 'images/discount_imgs/tropicana.jpg'
-},
-
-
+}
 ]

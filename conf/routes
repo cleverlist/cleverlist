@@ -9,7 +9,7 @@ GET     /api/productlists/:id/insert/:name  controllers.ProductLists.addProduct(
 #GET     /api/productlists/all           controllers.ProductLists.getAll
 
 # Saves the whole list
-POST    /api/productlists/save/               controllers.ProductLists.save()
+POST    /api/productlists/save/:id               controllers.ProductLists.save(id: Int)
 
 # Retrieves all discounts on a given product type (category)
 GET     /api/discounts/:id               controllers.Discounts.findAll(id: String)

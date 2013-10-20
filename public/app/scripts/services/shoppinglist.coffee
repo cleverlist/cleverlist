@@ -5,7 +5,6 @@ angular.module('cleverlistApp')
     class List
       constructor: (e) ->
         angular.extend(this, e)
-
         if not @products then @products = []
 
       position_of: (i) ->
@@ -14,7 +13,7 @@ angular.module('cleverlistApp')
         return -1
 
       add: (i) ->
-        if @position_of(i) == -1 then @products.unshift(name: i); @save();
+        if @position_of(i) == -1 then console.log(@products);console.log("TEST");@products.unshift(name: i); console.log(@products);@save();
 
       check: (i) ->
         pos = @position_of(i)
@@ -44,9 +43,9 @@ angular.module('cleverlistApp')
         if p != -1 then @products.splice(p, 1);
         @save()
 
-      save: -> $http.post('/api/productlists/save', @toJson())
+      save: -> $http.post('/api/productlists/save/' + this.user_id, @toJson())
 
-      toJson: -> JSON.stringify(this)
+      toJson: -> angular.toJson(this)
 
     service =
       add: (cat) -> return $http.get('/api/productlists/' + 100 + '/insert/' + cat);
