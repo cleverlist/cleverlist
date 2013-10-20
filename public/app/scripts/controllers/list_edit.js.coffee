@@ -22,9 +22,10 @@ angular.module('cleverlistApp').controller 'ListEditCtrl', ['$scope', '$q', 'sho
 
   $scope.add_product = () ->
     console.log($scope.to_add);
-    $scope.to_add = $("#add_product").val('');
-    #if $scope.to_add then shoppinglist.add($scope.to_add);
-    if $scope.to_add then $scope.list.add($scope.to_add);
+    $scope.to_add = $("#add_product").val();
+    if $scope.to_add then shoppinglist.add($scope.to_add).then (l) -> $scope.list = l
+
+    #if $scope.to_add then $scope.list.add($scope.to_add);
     $scope.to_add='';
     $("#add_product").val('');
 

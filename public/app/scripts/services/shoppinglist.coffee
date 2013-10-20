@@ -48,7 +48,8 @@ angular.module('cleverlistApp')
       toJson: -> angular.toJson(this)
 
     service =
-      add: (cat) -> return $http.get('/api/productlists/' + 100 + '/insert/' + cat.name);
+      add: (cat) -> return $http.get('/api/productlists/' + 100 + '/insert/' + cat).then (r) -> return new List(r.data)
+
       create: -> return $q.when(new List());
       find: (id) ->
         if id
